@@ -12,7 +12,9 @@ dependencies = []
 
 [dependency-groups]
 dev = [
-    "ruff==0.16.0", # For IDE integrations
+    "ipdb==0.13.13",
+    "ipython==9.15.0",
+    "ruff==0.16.0",    # For IDE integrations
 ]
 
 [tool.uv]
