@@ -4,4 +4,18 @@ version = "0.1.0"
 description = "Study notes for 'Designing with Python: Programming for a Visual Context' course"
 readme = "README.md"
 requires-python = "==3.14.*"
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.14",
+]
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff==0.16.0", # For IDE integrations
+]
+
+[tool.uv]
+# The earliest version that supports the current lock file revision
+required-version = ">=0.8.4"
+package = false
