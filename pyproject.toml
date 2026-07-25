@@ -3,11 +3,13 @@ name = "designing-with-python"
 version = "0.1.0"
 description = "Study notes for 'Designing with Python: Programming for a Visual Context' course"
 readme = "README.md"
+license = "MIT"
 authors = [
     { name = "Ülgen Sarıkavak", email = "foss@ulgenwanders.net" },
 ]
 requires-python = "==3.14.*"
 classifiers = [
+    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.14",
 ]
