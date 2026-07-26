@@ -1,7 +1,7 @@
 [project]
 name = "designing-with-python"
 version = "0.1.0"
-description = "Study notes for 'Designing with Python: Programming for a Visual Context' course"
+description = "Study notes for 'Designing with Python: Programming for a Visual Context' Domestika course"
 readme = "README.md"
 license = "MIT"
 authors = [
