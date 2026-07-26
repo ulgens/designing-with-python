@@ -17,6 +17,9 @@ dependencies = [
     "py5==0.10.11a0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/ulgens/designing-with-python"
+
 [dependency-groups]
 dev = [
     "ipdb==0.13.13",
