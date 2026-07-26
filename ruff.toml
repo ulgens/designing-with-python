@@ -1,0 +1,7 @@
+[lint]
+ignore = [
+    # I'm okay with invalid module names.
+    # Will be using "<number>_<topic-slug>" pattern as module names.
+    # https://docs.astral.sh/ruff/rules/invalid-module-name/
+    "N999",
+]
