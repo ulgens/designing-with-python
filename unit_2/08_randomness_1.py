@@ -2,68 +2,72 @@
 "Randomness: Infinite options 1" video from Unit 2
 """
 
-import py5
+from py5 import Sketch as BaseSketch
 
 
-def setup():
-    py5.size(980, 980)
+class Sketch(BaseSketch):
+    def settings(self):
+        self.size(980, 980)
 
-    n = py5.random(10)
-    print(n)
+    def setup(self):
+        n = self.random(10)
+        print(n)
 
-    i = py5.random_int(0, 10)
-    print(i)
+        i = self.random_int(0, 10)
+        print(i)
 
-    py5.fill(0)
-    py5.no_stroke()
+        self.fill(0)
+        self.no_stroke()
 
-    for x in range(50, 930, 50):
-        d = py5.random(50)
+        for x in range(50, 930, 50):
+            d = self.random(50)
 
-        py5.circle(x, 50, d)
+            self.circle(x, 50, d)
 
-    for x in range(50, 930, 50):
-        i = py5.random_int(1, 4)
+        for x in range(50, 930, 50):
+            i = self.random_int(1, 4)
 
-        py5.circle(x, 150, i * 10)
+            self.circle(x, 150, i * 10)
 
-    for x in range(50, 930, 50):
-        r = py5.random_int(255)
-        g = py5.random_int(255)
-        b = py5.random_int(255)
+        for x in range(50, 930, 50):
+            r = self.random_int(255)
+            g = self.random_int(255)
+            b = self.random_int(255)
 
-        py5.fill(r, g, b)
+            self.fill(r, g, b)
 
-        py5.circle(x, 250, 45)
+            self.circle(x, 250, 45)
 
-    for x in range(50, 930, 50):
-        r = 0
-        g = py5.random_int(255)
-        b = py5.random_int(255)
+        for x in range(50, 930, 50):
+            r = 0
+            g = self.random_int(255)
+            b = self.random_int(255)
 
-        py5.fill(r, g, b)
+            self.fill(r, g, b)
 
-        py5.circle(x, 350, 45)
+            self.circle(x, 350, 45)
 
-    for x in range(50, 930, 50):
-        r = 0
-        g = py5.random_int(128, 255)
-        b = 128
+        for x in range(50, 930, 50):
+            r = 0
+            g = self.random_int(128, 255)
+            b = 128
 
-        py5.fill(r, g, b)
+            self.fill(r, g, b)
 
-        py5.circle(x, 450, 45)
+            self.circle(x, 450, 45)
 
-    cores = [
-        py5.color(255, 200, 0),
-        py5.color(0, 128, 255),
-        py5.color(128, 255, 0),
-    ]
+        cores = [
+            self.color(255, 200, 0),
+            self.color(0, 128, 255),
+            self.color(128, 255, 0),
+        ]
 
-    for x in range(50, 930, 50):
-        py5.fill(py5.random_choice(cores))
+        for x in range(50, 930, 50):
+            self.fill(self.random_choice(cores))
 
-        py5.circle(x, 550, 45)
+            self.circle(x, 550, 45)
 
 
-py5.run_sketch()
+if __name__ == "__main__":
+    sketch = Sketch()
+    sketch.run_sketch()

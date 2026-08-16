@@ -2,28 +2,32 @@
 "How to define and use new functions" video from Unit 2
 """
 
-import py5
+from py5 import Sketch as BaseSketch
 
 
-def eye(x, y, width):
-    py5.no_stroke()
+class Sketch(BaseSketch):
+    def settings(self):
+        self.size(980, 980)
 
-    py5.fill(255)
-    py5.ellipse(x, y, width, width / 3)
+    def eye(self, x, y, width):
+        self.no_stroke()
 
-    py5.fill(255, 0, 0)
-    py5.ellipse(x, y, width / 3, width / 3)
+        self.fill(255)
+        self.ellipse(x, y, width, width / 3)
 
-    py5.fill(0)
-    py5.ellipse(x, y, width / 10, width / 10)
+        self.fill(255, 0, 0)
+        self.ellipse(x, y, width / 3, width / 3)
+
+        self.fill(0)
+        self.ellipse(x, y, width / 10, width / 10)
+
+    def setup(self):
+        self.background(0, 0, 200)
+
+        for y in range(100, 1000, 100):
+            self.eye(x=self.width / 2, y=y, width=150)
 
 
-def setup():
-    py5.size(980, 980)
-    py5.background(0, 0, 200)
-
-    for y in range(100, 1000, 100):
-        eye(x=py5.width / 2, y=y, width=150)
-
-
-py5.run_sketch()
+if __name__ == "__main__":
+    sketch = Sketch()
+    sketch.run_sketch()

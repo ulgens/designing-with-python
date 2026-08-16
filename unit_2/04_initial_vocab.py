@@ -2,36 +2,32 @@
 "Initial py5 drawing vocabulary" video from Unit 2
 """
 
-import py5
-
-# TODO:
-#   Wildcard import from py5 causes multiple issues like
-#   > RuntimeError: Cannot call the size() method here. Either move it to a settings() function or move it to closer to the start of setup().
-#   > NameError: name 'width' is not defined
-#   I'm not sure what is going on.
+from py5 import Sketch as BaseSketch
 
 
-def setup():
-    py5.size(980, 980)
+class Sketch(BaseSketch):
+    def settings(self):
+        self.size(980, 980)
 
-    py5.background(200, 0, 200)
+    def setup(self):
+        self.background(200, 0, 200)
+        self.rect_mode(self.CENTER)
 
-    py5.rect_mode(py5.CENTER)
+    def draw(self):
+        # Rectangle
+        self.fill(0, 200, 0)
+        self.stroke(255, 0, 0)
+        self.stroke_weight(5)
+
+        self.rect(self.width / 2, self.height / 2, 200, 50)
+
+        # Ellipse
+        self.fill(255)
+        self.no_stroke()
+
+        self.ellipse(200, 200, 100, 100)
 
 
-def draw():
-    # Rectangle
-    py5.fill(0, 200, 0)
-    py5.stroke(255, 0, 0)
-    py5.stroke_weight(5)
-
-    py5.rect(py5.width / 2, py5.height / 2, 200, 50)
-
-    # Ellipse
-    py5.fill(255)
-    py5.no_stroke()
-
-    py5.ellipse(200, 200, 100, 100)
-
-
-py5.run_sketch()
+if __name__ == "__main__":
+    sketch = Sketch()
+    sketch.run_sketch()
