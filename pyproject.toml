@@ -23,8 +23,8 @@ Homepage = "https://github.com/ulgens/designing-with-python"
 [dependency-groups]
 dev = [
     "ipdb==0.13.13",
-    "ipython==9.15.0",
-    "ruff==0.16.0",    # For IDE integrations
+    "ipython==9.16.1",
+    "ruff==0.16.3",    # For IDE integrations
 ]
 
 [tool.uv]
