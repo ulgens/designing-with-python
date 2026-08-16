@@ -1,39 +1,40 @@
 from uuid import uuid7
 
-import py5
-
-save_document = False
+from unit_3.utils import BaseSketch
 
 
-def setup():
-    py5.size(700, 980)
+class Sketch(BaseSketch):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.save_document = False
+
+    def settings(self):
+        self.size(700, 980)
+
+    def key_pressed(self):
+        if self.key == "p":
+            self.save_document = True
+            print("Saving PDF...")
+
+    def draw(self):
+        if self.save_document:
+            timestamp = uuid7()
+            # self.begin_record(self.SVG, "output.svg")
+            self.begin_record(self.PDF, f"output-{timestamp}.pdf")
+
+        self.background(0, 0, 100)
+        self.circle(
+            self.width / 2,
+            self.height / 2,
+            200,
+        )
+
+        if self.save_document:
+            self.end_record()
+            self.save_document = False
 
 
-def draw():
-    global save_document
-    if save_document:
-        timestamp = uuid7()
-        # py5.begin_record(py5.SVG, "output.svg")
-        py5.begin_record(py5.PDF, f"output-{timestamp}.pdf")
-
-    py5.background(0, 0, 100)
-    py5.circle(
-        py5.width / 2,
-        py5.height / 2,
-        200,
-    )
-
-    if save_document:
-        py5.end_record()
-        save_document = False
-
-
-def key_pressed():
-    global save_document
-
-    if py5.key == "p":
-        save_document = True
-        print("Saving PDF...")
-
-
-py5.run_sketch()
+if __name__ == "__main__":
+    sketch = Sketch()
+    sketch.run_sketch()
