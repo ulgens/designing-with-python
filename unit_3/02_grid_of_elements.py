@@ -2,36 +2,39 @@
 "A grid of ordered elements" video from Unit 3
 """
 
-import py5
-
-from unit_3.utils import star
+from unit_3.utils import BaseSketch
 
 
-def setup():
-    py5.size(700, 980)
-    py5.background(0, 0, 100)
+class Sketch(BaseSketch):
+    def settings(self):
+        self.size(700, 980)
 
-    columns, rows = 10, 15
+    def setup(self):
+        self.background(0, 0, 100)
 
-    offset_x = 50
-    w = (py5.width - 2 * offset_x) / columns
-    print(f"Width: {w}")
+        columns, rows = 10, 15
 
-    offset_y = (py5.height - w * rows) / 2
+        offset_x = 50
+        w = (self.width - 2 * offset_x) / columns
+        print(f"Width: {w}")
 
-    for j in range(rows):
-        pos_y = (j * w) + (w / 2) + offset_y
+        offset_y = (self.height - w * rows) / 2
 
-        for i in range(columns):
-            pos_x = (i * w) + (w / 2) + offset_x
+        for j in range(rows):
+            pos_y = (j * w) + (w / 2) + offset_y
 
-            star(
-                pos_x,
-                pos_y,
-                w / (2 + j),
-                w / 4,
-                np=3 + i,
-            )
+            for i in range(columns):
+                pos_x = (i * w) + (w / 2) + offset_x
+
+                self.star(
+                    pos_x,
+                    pos_y,
+                    w / (2 + j),
+                    w / 4,
+                    np=3 + i,
+                )
 
 
-py5.run_sketch()
+if __name__ == "__main__":
+    sketch = Sketch()
+    sketch.run_sketch()
