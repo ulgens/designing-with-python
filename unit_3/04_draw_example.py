@@ -1,40 +1,47 @@
-import py5
-
-seed = 1
+from unit_3.utils import BaseSketch
 
 
-def setup():
-    py5.size(980, 980)
+class Sketch(BaseSketch):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.seed = 1
+
+    def settings(self):
+        self.size(980, 980)
+
+    def setup(self):
+        print(self.seed)
+
+    def mouse_pressed(self):
+        self.seed += 1
+        print(self.seed)
+
+        self.redraw()
+
+    def draw(self):
+
+        # Clean
+        self.background(200)
+
+        # Setup?
+        self.random_seed(self.seed)
+
+        # Draw
+        d = self.random_int(100, 200)
+
+        r = self.random_int(255)
+        g = self.random_int(255)
+        b = self.random_int(255)
+        self.fill(r, g, b)
+
+        self.circle(
+            self.width / 2,
+            self.height / 2,
+            d,
+        )
 
 
-def draw():
-    # Clean
-    py5.background(200)
-
-    # Setup?
-    py5.random_seed(seed)
-
-    # Draw
-    d = py5.random_int(100, 200)
-
-    r = py5.random_int(255)
-    g = py5.random_int(255)
-    b = py5.random_int(255)
-    py5.fill(r, g, b)
-
-    py5.circle(
-        py5.width / 2,
-        py5.height / 2,
-        d,
-    )
-
-
-def mouse_pressed():
-    global seed  # I don't like this
-    seed += 1
-    print(seed)
-
-    py5.redraw()
-
-
-py5.run_sketch()
+if __name__ == "__main__":
+    sketch = Sketch()
+    sketch.run_sketch()
