@@ -2,33 +2,38 @@
 "Repeat loops" video from Unit 2
 """
 
-import py5
+from py5 import Sketch as BaseSketch
 
 
-def setup():
-    py5.size(980, 980)
-    py5.background(240)
+class Sketch(BaseSketch):
+    def settings(self):
+        self.size(980, 980)
 
-    # List example
-    fruits = [
-        "kiwi",
-        "acai",
-        "banana",
-    ]
-    for f in fruits:
-        print(f)
+    def setup(self):
+        self.background(240)
 
-    # Tuple example
-    p = (200, 100)  # noqa: F841
+        # List example
+        fruits = [
+            "kiwi",
+            "acai",
+            "banana",
+        ]
+        for f in fruits:
+            print(f)
 
-    # Drawing lines with a loop
-    step_size = 2
-    for n in range(10, 70, step_size):
-        py5.line(n * 10, 100, n * 5, 490)
+        # Tuple example
+        p = (200, 100)  # noqa: F841
 
-    margin = 50
-    for i in range(20):
-        py5.line(margin + i * 8, 150, margin + i * 16, 600)
+        # Drawing lines with a loop
+        step_size = 2
+        for n in range(10, 70, step_size):
+            self.line(n * 10, 100, n * 5, 490)
+
+        margin = 50
+        for i in range(20):
+            self.line(margin + i * 8, 150, margin + i * 16, 600)
 
 
-py5.run_sketch()
+if __name__ == "__main__":
+    sketch = Sketch()
+    sketch.run_sketch()
