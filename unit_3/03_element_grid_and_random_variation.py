@@ -49,6 +49,9 @@ class Sketch(BaseSketch):
 
         self.stroke(255)
 
+        self.no_loop()
+
+    def draw(self):
         for _ in range(3):
             self.grid(100, 6, 8)
 

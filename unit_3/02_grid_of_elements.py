@@ -12,6 +12,9 @@ class Sketch(BaseSketch):
     def setup(self):
         self.background(0, 0, 100)
 
+        self.no_loop()
+
+    def draw(self):
         columns, rows = 10, 15
 
         offset_x = 50
