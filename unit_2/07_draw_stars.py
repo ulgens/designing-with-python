@@ -45,6 +45,9 @@ class Sketch(BaseSketch):
     def setup(self):
         self.background(0, 0, 200)
 
+        self.no_loop()
+
+    def draw(self):
         # Example polygon
         pts = (
             (200, 200),

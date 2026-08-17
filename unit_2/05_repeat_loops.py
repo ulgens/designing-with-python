@@ -12,6 +12,9 @@ class Sketch(BaseSketch):
     def setup(self):
         self.background(240)
 
+        self.no_loop()
+
+    def draw(self):
         # List example
         fruits = [
             "kiwi",

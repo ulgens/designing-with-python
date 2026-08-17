@@ -19,6 +19,9 @@ class Sketch(BaseSketch):
         self.fill(0)
         self.no_stroke()
 
+        self.no_loop()
+
+    def draw(self):
         for x in range(50, 930, 50):
             d = self.random(50)
 

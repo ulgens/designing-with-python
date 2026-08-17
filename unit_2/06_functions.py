@@ -24,6 +24,9 @@ class Sketch(BaseSketch):
     def setup(self):
         self.background(0, 0, 200)
 
+        self.no_loop()
+
+    def draw(self):
         for y in range(100, 1000, 100):
             self.eye(x=self.width / 2, y=y, width=150)
 
